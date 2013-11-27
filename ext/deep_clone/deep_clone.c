@@ -55,7 +55,7 @@ static VALUE clone_object(VALUE object, VALUE tracker)
   VALUE new_obj;
   VALUE id = rb_obj_id(object);
 
-  if(st_lookup(RHASH_TBL(tracker), id, 0)) {
+  if(rb_hash_lookup(tracker, id, 0)) {
     new_obj = rb_hash_aref(tracker,id);
   } else {
     ident++;
